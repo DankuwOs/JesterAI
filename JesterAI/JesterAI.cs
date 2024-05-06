@@ -335,11 +335,9 @@ namespace Jester
         }
 
 
-        [HarmonyPatch(typeof(Radar), nameof(Radar.DetectActor), new Type[] {typeof(Actor) })]
+        [HarmonyPatch(typeof(Radar), nameof(Radar.DetectActor), new Type[] {typeof(Actor), typeof(float), typeof(TargetIdentity)})]
         public static class PatchDetectActor
         {
-            
-
             public static void Postfix(Radar __instance, ref Actor a)
             {
                 if (!jesteraiobj)
